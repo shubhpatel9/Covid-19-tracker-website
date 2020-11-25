@@ -102,12 +102,12 @@ const Counter = (props) => {
         <form onSubmit={submit}>
             <input name="date" type="date" placeholder="date, ex20201125"/>
             <input name="secondDate" type="date" placeholder="date, ex20201125"/>         
-            <button type="submit" onClick>yolo</button>
+            <button type="submit" onClick>Submit</button>
         </form>
 
 
-        <input />
-        <button onClick={() => setCounter(counter + 1)}>Submit</button>     
+        {/*<input />
+        <button onClick={() => setCounter(counter + 1)}>Submit</button> */}   
    
         {
             alert ? 
