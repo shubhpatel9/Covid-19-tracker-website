@@ -7,6 +7,8 @@ const Counter = (props) => {
 
     const [counter, setCounter] = useState(0);
     const [alert, setAlert] = useState(false);
+    const [selectedDate, setSelectedDate] = useState(false);
+    const [secondDate, setSecondDate] = useState('')
     const [dateValue, setDateValue] = useState('');
 
     const [COVIDdata, setCOVIDdata] = useState(0);
@@ -34,11 +36,16 @@ const Counter = (props) => {
 
 
     const checkDate = (date, secondDate, covidData) => {
+        console.log('entered function', typeof date, secondDate, covidData)
+
+        const data_from_dates = []
         covidData.forEach(idx => {
-            if(idx.date > (date - 1) && idx.date < secondDate){
+            if(idx.date >= (date - 1) && idx.date <= secondDate){
                 console.log(idx)
+                data_from_dates.push(idx)
             }
         })
+        return data_from_dates;
     }
 
     const showAlert = (counter) => {
@@ -61,14 +68,24 @@ const Counter = (props) => {
         console.log('counter updated! New Value: ', dateValue)
     }, [dateValue])
 
+    useEffect(() => {
+        console.log('counter updated! New Value: ', selectedDate)
+    }, [selectedDate])
+
     const submit = (e) => {
         e.preventDefault();
         let date = e.target.date.value
-        console.log('pre-removing string: ', date);
+        let secondDate = e.target.secondDate.value
+
         date = date.replace(/-/g,'')
-        console.log('post-removing string: ', date);
+        secondDate = secondDate.replace(/-/g,'')
+
+
         date = parseInt(date,10)
+        secondDate = parseInt(secondDate, 10)
         setDateValue(date);
+        setSecondDate(secondDate);
+        setSelectedDate(checkDate(date, secondDate, COVIDdata))
     }
 
     return (
@@ -81,10 +98,10 @@ const Counter = (props) => {
             <input type="text" value={props.state} onChange={props.setState}/>
             <input type="submit" value="Submit"/>
     </form>*/}
-        <div>Form for use</div>
+        <div>Enter Date</div>
         <form onSubmit={submit}>
             <input name="date" type="date" placeholder="date, ex20201125"/>
-            <input name="date" type="date" placeholder="date, ex20201125"/>         
+            <input name="secondDate" type="date" placeholder="date, ex20201125"/>         
             <button type="submit" onClick>yolo</button>
         </form>
 
@@ -97,6 +114,22 @@ const Counter = (props) => {
                 <div>Date: {COVIDdata[0].date}</div>
             :
                 <></>
+        }
+        {
+            selectedDate ?
+                selectedDate.map((d, i) => {
+                    return (
+                        <div key={i}>
+                            <h1>date: {d.date}</h1>
+                            <p>state: {d.state}</p>
+                            <p>death: {d.death}</p>
+                            <p>death increase: {d.increase}</p>
+                            <p>pending: {d.pending}</p>
+                        </div>
+                    )
+                })
+                :
+                ''
         }
 
       </div>
