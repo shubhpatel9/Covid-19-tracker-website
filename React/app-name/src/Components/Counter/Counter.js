@@ -121,7 +121,7 @@ const Counter = (props) => {
                     return (
                         <div key={i}>
                             <h1>date: {d.date}</h1>
-                            <p>state: {d.state}</p>
+                            <p>positive: {d.positiveIncrease}</p>
                             <p>death: {d.death}</p>
                             <p>death increase: {d.deathIncrease}</p>
                             <p>pending: {d.pending}</p>
