@@ -123,7 +123,7 @@ const Counter = (props) => {
                             <h1>date: {d.date}</h1>
                             <p>state: {d.state}</p>
                             <p>death: {d.death}</p>
-                            <p>death increase: {d.increase}</p>
+                            <p>death increase: {d.deathIncrease}</p>
                             <p>pending: {d.pending}</p>
                         </div>
                     )
@@ -135,7 +135,7 @@ const Counter = (props) => {
       </div>
     )
 }
-const UserInput = props => {
+{/*const UserInput = props => {
     return(
         <div>
             <h1>yolo</h1>
@@ -146,7 +146,7 @@ const UserInput = props => {
             </form>
         </div>
     )
-}; 
+}; */}
  
 
 export default Counter;
