@@ -1,0 +1,16 @@
+{
+  "name": "hackathon2020",
+  "version": "1.0.0",
+  "description": "WSU hackathon",
+  "main": "server.js",
+  "scripts": {
+    "test": "yolo",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "save": "^2.4.0"
+  }
+}
