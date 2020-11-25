@@ -9,7 +9,6 @@ function App() {
     <div>
       <h1><center>COVID19 Data</center></h1>
       <Counter name={"Jacob"} counterValue={1}/>
-      <Counter state={""} setState={""}/>
       {/*<Counter state={this.} counterValue={0}/>*/}
       {/*this.NameForm.render()*/}
     </div>
